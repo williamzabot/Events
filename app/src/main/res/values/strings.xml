@@ -4,6 +4,6 @@
     <string name="email_required">Email é obrigatório</string>
     <string name="invalid_email">Insira um email válido</string>
     <string name="unknown_error">"Ocorreu um erro, tente novamente mais tarde!"</string>
-    <string name="success_checkin">Checkin realizado com sucesso!</string>
-    <string name="error_api">Erro ao solicitar o serviço!</string>
+    <string name="success_checkin">Checkin realizado com sucesso. Bom evento!</string>
+    <string name="error_api">Erro da API!</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.williamzabot.events.data.repositories
 
 import com.williamzabot.events.data.di.RetrofitModule.provideEventApi
+import com.williamzabot.events.data.model.ResponseCheckinDTO
 import com.williamzabot.events.domain.exception.BadRequestException
 import com.williamzabot.events.domain.exception.EmptyEmailException
 import com.williamzabot.events.domain.exception.EmptyNameException
@@ -17,7 +18,7 @@ class CheckinRepositoryImpl @Inject constructor() : CheckinRepository {
     override suspend fun checkin(checkinBody: CheckinBody): Result<Unit> {
         val response = eventApi.checkin(checkinBody)
         return when (response.code()) {
-            200 -> Result.Success(Unit)
+            201 -> Result.Success(Unit)
             400 -> {
                 if (checkinBody.name.isBlank()) {
                     Result.Failure(EmptyNameException)

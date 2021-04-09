@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/size_2"
-    android:layout_marginBottom="16dp"
+    android:layout_marginBottom="@dimen/size_2"
     android:layout_marginEnd="@dimen/size_2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="@dimen/size_1_5">
 
         <ImageView
             android:id="@+id/image_item_event"
@@ -37,7 +37,7 @@
             android:id="@+id/date_item_event"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/size_0_7"
             android:fontFamily="@font/montserratregular"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
@@ -50,7 +50,7 @@
             android:id="@+id/price_item_event"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/size_0_7"
             android:fontFamily="@font/montserratregular"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
@@ -63,7 +63,7 @@
             android:id="@+id/button_checkin_item"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/size_1_3"
             android:background="@drawable/bg_button"
             android:text="Check-in"
             android:textColor="@android:color/white"
