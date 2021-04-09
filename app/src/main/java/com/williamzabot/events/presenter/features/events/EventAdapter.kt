@@ -31,7 +31,7 @@ class EventAdapter(private val clickEvent: (event: Event) -> Unit,
                 imageItemEvent.urlImage(event.image)
                 priceItemEvent.text = "R$ ${event.price}"
 
-                buttonCheckin.setOnClickListener {
+                buttonCheckinItem.setOnClickListener {
                     clickButton(event)
                 }
             }

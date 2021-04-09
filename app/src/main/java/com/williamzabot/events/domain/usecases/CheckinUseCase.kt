@@ -10,8 +10,7 @@ class CheckinUseCase @Inject constructor(private val checkinRepository: CheckinR
 
     data class Params(val checkinBody: CheckinBody)
 
-    override suspend fun execute(params: Params?): Result<Unit> {
-        if (params == null) throw IllegalArgumentException()
+    override suspend fun execute(params: Params): Result<Unit> {
         return when (val result = checkinRepository.checkin(params.checkinBody)) {
             is Result.Success -> Result.Success(Unit)
             is Result.Failure -> Result.Failure(result.exception)

@@ -12,12 +12,12 @@ android {
 
     defaultConfig {
         applicationId "com.williamzabot.events"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.williamzabot.events.utils.CustomTestRunner"
     }
 
     buildTypes {
@@ -48,37 +48,51 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    //tests
-    testImplementation 'junit:junit:4.+'
-    testImplementation "io.mockk:mockk:1.10.0"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7"
-    testImplementation "com.willowtreeapps.assertk:assertk-jvm:0.22"
-    testImplementation "androidx.arch.core:core-testing:2.1.0"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    
     def lifecycle_version = '2.2.0'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    def hilt_version = "2.28-alpha"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     def hilt_lifecycle_version = '1.0.0-alpha01'
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_lifecycle_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_version"
-    
+
+    //retrofit e okhttp
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+    implementation ("com.squareup.okhttp3:okhttp:3.12.12"){ force = true }
+    implementation "com.squareup.okhttp3:logging-interceptor:3.12.12"
 
-    def navVersion = "2.3.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    def nav_version = "2.3.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'com.airbnb.android:lottie:3.6.1'
+
+    //Unit Tests (JVM)
+    testImplementation 'junit:junit:4.+'
+    testImplementation "io.mockk:mockk:1.10.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7"
+    testImplementation "com.willowtreeapps.assertk:assertk-jvm:0.22"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    //UI Tests
+    def androidx_test_espresso = "3.1.0"
+    def androidx_test = "1.1.0"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
+    androidTestImplementation "androidx.test:runner:$androidx_test"
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidx_test"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    androidTestImplementation 'org.mockito:mockito-android:3.2.4'
+    debugImplementation "androidx.fragment:fragment-testing:1.3.0-alpha08"
 }

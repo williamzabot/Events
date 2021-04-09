@@ -6,7 +6,7 @@ import com.williamzabot.events.domain.repositories.EventRepository
 import com.williamzabot.events.domain.utils.Result
 import javax.inject.Inject
 
-class EventRepositoryImpl @Inject constructor(): EventRepository {
+class EventRepositoryImpl @Inject constructor() : EventRepository {
 
     private val eventApi = provideEventApi()
 
@@ -18,3 +18,4 @@ class EventRepositoryImpl @Inject constructor(): EventRepository {
         }
     }
 }
+

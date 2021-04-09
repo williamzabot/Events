@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.williamzabot.events.data.exception.BadRequestException
+import com.williamzabot.events.domain.exception.BadRequestException
 import com.williamzabot.events.domain.model.CheckinBody
 import com.williamzabot.events.domain.usecases.CheckinUseCase
 import com.williamzabot.events.domain.utils.Result

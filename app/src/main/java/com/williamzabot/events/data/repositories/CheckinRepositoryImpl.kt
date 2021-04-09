@@ -1,9 +1,9 @@
 package com.williamzabot.events.data.repositories
 
 import com.williamzabot.events.data.di.RetrofitModule.provideEventApi
-import com.williamzabot.events.data.exception.BadRequestException
-import com.williamzabot.events.data.exception.EmptyEmailException
-import com.williamzabot.events.data.exception.EmptyNameException
+import com.williamzabot.events.domain.exception.BadRequestException
+import com.williamzabot.events.domain.exception.EmptyEmailException
+import com.williamzabot.events.domain.exception.EmptyNameException
 import com.williamzabot.events.domain.model.CheckinBody
 import com.williamzabot.events.domain.repositories.CheckinRepository
 import com.williamzabot.events.domain.utils.Result

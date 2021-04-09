@@ -3,7 +3,7 @@ package com.williamzabot.events.presenter.checkin
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import assertk.assertThat
 import assertk.assertions.isEqualTo
-import com.williamzabot.events.data.exception.BadRequestException
+import com.williamzabot.events.domain.exception.BadRequestException
 import com.williamzabot.events.domain.usecases.CheckinUseCase
 import com.williamzabot.events.domain.utils.Result
 import com.williamzabot.events.presenter.CoroutinesTestRule
@@ -31,7 +31,6 @@ class CheckinViewModelTest {
     fun setUp() {
         viewModel = CheckinViewModel(useCase)
     }
-
 
     @Test
     fun `test checkin success `() {
