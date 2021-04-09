@@ -5,10 +5,11 @@ import assertk.assertThat
 import assertk.assertions.isEqualTo
 import com.williamzabot.events.data.exception.BadRequestException
 import com.williamzabot.events.domain.usecases.CheckinUseCase
-import com.williamzabot.events.domain.usecases.CheckinUseCaseTest.Companion.checkinBodyValid
 import com.williamzabot.events.domain.utils.Result
 import com.williamzabot.events.presenter.CoroutinesTestRule
 import com.williamzabot.events.presenter.features.checkin.CheckinViewModel
+import com.williamzabot.events.utils.EventFactory.checkinBodyInvalid
+import com.williamzabot.events.utils.EventFactory.checkinBodyValid
 import io.mockk.coEvery
 import io.mockk.mockk
 import org.junit.Before
@@ -31,12 +32,23 @@ class CheckinViewModelTest {
         viewModel = CheckinViewModel(useCase)
     }
 
+
     @Test
-    fun `test checkin `() {
+    fun `test checkin success `() {
         //given
-        coEvery { useCase.execute(CheckinUseCase.Params(checkinBodyValid)) } returns Result.Failure(BadRequestException)
+        coEvery { useCase.execute(CheckinUseCase.Params(checkinBodyValid)) } returns Result.Success(Unit)
         //when
         viewModel.checkin(checkinBodyValid.eventId, checkinBodyValid.name, checkinBodyValid.email)
+        //then
+        assertThat(viewModel.checkinSuccess.value).isEqualTo(true)
+    }
+
+    @Test
+    fun `test checkin badRequestException `() {
+        //given
+        coEvery { useCase.execute(CheckinUseCase.Params(checkinBodyInvalid)) } returns Result.Failure(BadRequestException)
+        //when
+        viewModel.checkin(checkinBodyInvalid.eventId, checkinBodyInvalid.name, checkinBodyInvalid.email)
         //then
         assertThat(viewModel.errorAPI.value).isEqualTo(true)
     }

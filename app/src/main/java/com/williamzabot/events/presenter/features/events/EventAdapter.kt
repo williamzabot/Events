@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.williamzabot.events.databinding.ItemEventBinding
-import com.williamzabot.events.domain.model.EventItem
+import com.williamzabot.events.domain.model.Event
 import com.williamzabot.events.presenter.extensions.toTime
 import com.williamzabot.events.presenter.extensions.urlImage
-import com.williamzabot.events.presenter.features.checkin.CheckinDialogFragmentDirections
 
-class EventAdapter(private val clickEvent: (event: EventItem) -> Unit,
-                   private val clickButton: (event : EventItem) -> Unit
+class EventAdapter(private val clickEvent: (event: Event) -> Unit,
+                   private val clickButton: (event : Event) -> Unit
 ) :
     RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
-    var events = listOf<EventItem>()
+    var events = listOf<Event>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -25,7 +24,7 @@ class EventAdapter(private val clickEvent: (event: EventItem) -> Unit,
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(event: EventItem) {
+        fun bind(event: Event) {
             binding.apply {
                 titleItemEvent.text = event.title
                 dateItemEvent.text = event.date.toTime()

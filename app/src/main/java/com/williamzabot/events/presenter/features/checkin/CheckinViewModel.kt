@@ -77,7 +77,6 @@ class CheckinViewModel @ViewModelInject constructor(private val checkinUseCase: 
                     }
                 }
             }
-
         }
     }
 

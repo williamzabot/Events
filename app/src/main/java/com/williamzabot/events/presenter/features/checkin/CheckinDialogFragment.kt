@@ -50,8 +50,8 @@ class CheckinDialogFragment : DialogFragment() {
     }
 
     private fun observeEvents() {
-        viewModel.nameFieldState.observe(viewLifecycleOwner) { passwordState ->
-            when (passwordState) {
+        viewModel.nameFieldState.observe(viewLifecycleOwner) { nameState ->
+            when (nameState) {
                 is FieldState.FieldOk -> {
                     binding.edittextName.error = null
                 }
