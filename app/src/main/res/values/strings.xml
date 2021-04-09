@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Events</string>
+    <string name="name_required">Nome é obrigatório</string>
+    <string name="email_required">Email é obrigatório</string>
+    <string name="invalid_email">Insira um email válido</string>
+    <string name="unknown_error">"Ocorreu um erro, tente novamente mais tarde!"</string>
+    <string name="success_checkin">Checkin realizado com sucesso!</string>
+    <string name="error_api">Erro ao solicitar o serviço!</string>
+</resources>

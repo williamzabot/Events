@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/event_graph"
+    app:startDestination="@id/eventFragment">
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="com.williamzabot.events.presenter.features.events.EventsFragment"
+        android:label="Eventos"
+        tools:layout="@layout/fragment_events">
+
+        <action
+            android:id="@+id/events_to_detail"
+            app:destination="@id/eventsDetailFragment"
+            app:popUpTo="@id/eventFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventsDetailFragment"
+        android:name="com.williamzabot.events.presenter.features.detail.EventDetailFragment"
+        android:label=""
+        tools:layout="@layout/fragment_event_detail">
+
+        <argument
+            android:name="event"
+            app:argType="com.williamzabot.events.domain.model.EventItem" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/checkinDialogFragment"
+        android:name="com.williamzabot.events.presenter.features.checkin.CheckinDialogFragment"
+        tools:layout="@layout/dialog_checkin">
+
+        <argument
+            android:name="event"
+            app:argType="com.williamzabot.events.domain.model.EventItem" />
+
+    </dialog>
+
+    <action
+        android:id="@+id/global_action_to_checkin"
+        app:destination="@id/checkinDialogFragment" />
+
+</navigation>
