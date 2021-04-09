@@ -52,6 +52,10 @@ class EventsFragment : Fragment() {
             eventAdapter.events = events
         }
 
+        viewModel.apiError.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), R.string.error_api, Toast.LENGTH_SHORT).show()
+        }
+
         viewModel.error.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), R.string.unknown_error, Toast.LENGTH_LONG).show()
         }
