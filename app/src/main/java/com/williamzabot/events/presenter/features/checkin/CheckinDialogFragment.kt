@@ -37,6 +37,10 @@ class CheckinDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         observeEvents()
+        clickButtonCheckin()
+    }
+
+    private fun clickButtonCheckin() {
         binding.buttonFinishCheckin.setOnClickListener {
             viewModel.sendNameAndEmailForCheckin(args.event.id,
                 binding.edittextName.text,

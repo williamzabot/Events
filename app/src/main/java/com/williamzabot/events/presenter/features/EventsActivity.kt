@@ -22,6 +22,10 @@ class EventsActivity : AppCompatActivity() {
         binding = ActivityEventsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarEvents)
+        configNavigation()
+    }
+
+    private fun configNavigation() {
         val navHost =
             supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHost.navController

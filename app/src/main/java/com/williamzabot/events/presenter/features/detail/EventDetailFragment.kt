@@ -34,6 +34,10 @@ class EventDetailFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
+    private fun initView() {
         binding.apply {
             titleEvent.text = args.event.title
             dateEvent.text = args.event.date.toTime()
