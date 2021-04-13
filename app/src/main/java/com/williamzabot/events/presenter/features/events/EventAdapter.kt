@@ -1,9 +1,9 @@
 package com.williamzabot.events.presenter.features.events
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.williamzabot.events.R
 import com.williamzabot.events.databinding.ItemEventBinding
 import com.williamzabot.events.domain.model.Event
 import com.williamzabot.events.presenter.extensions.toTime
@@ -23,13 +23,12 @@ class EventAdapter(private val clickEvent: (event: Event) -> Unit,
     inner class EventViewHolder(private val binding: ItemEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        @SuppressLint("SetTextI18n")
         fun bind(event: Event) {
             binding.apply {
                 titleItemEvent.text = event.title
                 dateItemEvent.text = event.date.toTime()
                 imageItemEvent.urlImage(event.image)
-                priceItemEvent.text = "R$ ${event.price}"
+                priceItemEvent.text = itemView.context.getString(R.string.sign).plus(event.price)
 
                 buttonCheckinItem.setOnClickListener {
                     clickButton(event)

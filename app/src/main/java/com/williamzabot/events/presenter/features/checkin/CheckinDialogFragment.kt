@@ -1,6 +1,5 @@
 package com.williamzabot.events.presenter.features.checkin
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,9 +47,8 @@ class CheckinDialogFragment : DialogFragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun initView() {
-        binding.eventNameCheckin.text = "Evento: ${args.event.title}"
+        binding.eventNameCheckin.text = getString(R.string.event).plus(args.event.title)
     }
 
     private fun observeEvents() {

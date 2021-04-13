@@ -1,6 +1,5 @@
 package com.williamzabot.events.presenter.features.detail
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.williamzabot.events.R
 import com.williamzabot.events.databinding.FragmentEventDetailBinding
 import com.williamzabot.events.presenter.extensions.toTime
 import com.williamzabot.events.presenter.extensions.urlImage
@@ -31,7 +31,6 @@ class EventDetailFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
@@ -42,7 +41,7 @@ class EventDetailFragment : Fragment() {
             titleEvent.text = args.event.title
             dateEvent.text = args.event.date.toTime()
             imageEvent.urlImage(args.event.image)
-            priceEvent.text = "R$ ${args.event.price}"
+            priceEvent.text = getString(R.string.sign).plus(args.event.price)
             descriptionEvent.text = args.event.description
 
             buttonCheckin.setOnClickListener {

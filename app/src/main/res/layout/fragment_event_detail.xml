@@ -72,7 +72,7 @@
             android:background="@drawable/bg_button"
             android:paddingStart="@dimen/size_1_3"
             android:paddingEnd="@dimen/size_1_3"
-            android:text="Fazer check-in"
+            android:text="@string/make_check_in"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="@id/image_event"
             app:layout_constraintStart_toStartOf="@id/image_event"

@@ -1,6 +1,7 @@
 package com.williamzabot.events.data.di
 
 import com.williamzabot.events.data.api.EventApi
+import com.williamzabot.events.domain.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +22,7 @@ object RetrofitModule {
 
     private inline fun <reified T> providerWebService(): T {
         return Retrofit.Builder()
-            .baseUrl("http://5f5a8f24d44d640016169133.mockapi.io/api/")
+            .baseUrl(BASE_URL)
             .client(provideOkHttpClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

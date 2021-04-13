@@ -6,4 +6,10 @@
     <string name="unknown_error">"Ocorreu um erro, tente novamente mais tarde!"</string>
     <string name="success_checkin">Checkin realizado com sucesso. Bom evento!</string>
     <string name="error_api">Erro da API!</string>
+    <string name="sign">R$ </string>
+    <string name="event">Evento: </string>
+    <string name="check_in">Check-in</string>
+    <string name="make_check_in">Fazer check-in</string>
+    <string name="your_name">Seu Nome</string>
+    <string name="your_email">Seu Email</string>
 </resources>
