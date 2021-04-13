@@ -14,7 +14,14 @@ class EventRepositoryImpl @Inject constructor() : EventRepository {
     override suspend fun getEvents(): Result<List<EventDTO>> {
         val response = eventApi.getEvents()
         return when (response.code()) {
-            SUCCESS -> Result.Success(response.body()!!)
+            SUCCESS -> {
+                val body = response.body() as List<EventDTO>
+                if (response.body() != null && body.isNotEmpty()) {
+                    Result.Success(body)
+                } else {
+                    Result.Failure(Exception())
+                }
+            }
             else -> Result.Failure(Exception())
         }
     }
