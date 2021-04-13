@@ -48,7 +48,7 @@ class CheckinDialogFragment : DialogFragment() {
     }
 
     private fun initView() {
-        binding.eventNameCheckin.text = getString(R.string.event).plus(args.event.title)
+        binding.eventNameCheckin.text = getString(R.string.event).plus(" ").plus(args.event.title)
     }
 
     private fun observeEvents() {

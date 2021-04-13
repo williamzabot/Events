@@ -28,7 +28,7 @@ class EventAdapter(private val clickEvent: (event: Event) -> Unit,
                 titleItemEvent.text = event.title
                 dateItemEvent.text = event.date.toTime()
                 imageItemEvent.urlImage(event.image)
-                priceItemEvent.text = itemView.context.getString(R.string.sign).plus(event.price)
+                priceItemEvent.text = itemView.context.getString(R.string.sign).plus(" ").plus(event.price)
 
                 buttonCheckinItem.setOnClickListener {
                     clickButton(event)

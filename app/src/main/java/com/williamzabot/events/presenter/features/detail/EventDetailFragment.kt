@@ -41,7 +41,7 @@ class EventDetailFragment : Fragment() {
             titleEvent.text = args.event.title
             dateEvent.text = args.event.date.toTime()
             imageEvent.urlImage(args.event.image)
-            priceEvent.text = getString(R.string.sign).plus(args.event.price)
+            priceEvent.text = getString(R.string.sign).plus(" ").plus(args.event.price)
             descriptionEvent.text = args.event.description
 
             buttonCheckin.setOnClickListener {
